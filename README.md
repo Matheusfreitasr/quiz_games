@@ -69,7 +69,7 @@ lib/pergunta.dart      classe Pergunta
 lib/perguntas.dart     lista com as perguntas
 lib/entrada.dart       leitura e validação do que o jogador digita
 lib/quiz.dart          rodada, mensagens e placar
-test/                  testes automatizados
+docs/                  capturas de tela
 ```
 
 As perguntas ficam em uma lista e são mostradas por um `for`. Para incluir uma pergunta nova, basta adicionar um item em `lib/perguntas.dart`.

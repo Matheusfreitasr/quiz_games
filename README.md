@@ -7,40 +7,50 @@ Desafio 02 - jogo de perguntas e respostas no terminal, feito em Dart.
 
 ## Sobre o quiz
 
-O tema é **videogames, dos clássicos aos lançamentos recentes**. Metade das perguntas é sobre jogos que todo mundo conhece e que marcaram a história (Zelda, Mario, Sonic, Pokémon, Pac-Man) e a outra metade sobre games e consoles dos últimos anos (GTA VI, Switch 2, Fortnite, Minecraft, EA Sports FC). São 10 perguntas, cada uma com quatro alternativas (A, B, C e D) e só uma correta. A categoria de cada pergunta mostra se ela é "Clássico" ou "Recente".
+O tema é **videogames, dos clássicos aos lançamentos recentes**. O jogador escolhe um entre três níveis de dificuldade, e cada nível tem 6 perguntas de múltipla escolha com quatro alternativas (A, B, C e D), sendo só uma correta.
 
-Exemplo de pergunta:
+| Nível | O que cobra |
+| --- | --- |
+| Fácil | jogos e personagens que todo mundo conhece (Mario Kart, Among Us, Pokémon, Sonic, Zelda) |
+| Médio | lançamentos recentes e curiosidades de jogador (GTA VI, Switch 2, Minecraft, EA Sports FC) |
+| Difícil | história dos games e detalhes para veteranos (Pong, Tetris, Elden Ring, Jogo do Ano 2025) |
+
+Exemplo de pergunta (nível Médio):
 
 ```
-[3/10] Clássico · Retrô
-No Pac-Man, qual é a cor do fantasma Blinky?
-  A) Laranja
-  B) Vermelho
-  C) Rosa
-  D) Azul-claro
+[2/6] Minecraft
+Qual material é preciso para construir um portal para o Nether no Minecraft?
+  A) Pedra
+  B) Obsidiana
+  C) Diamante
+  D) Ferro
 Sua resposta (A, B, C ou D):
 ```
 
 ### Como o jogo funciona
 
 - Pergunta o nome do jogador e usa o nome nas mensagens.
+- Pede para escolher o nível (1, 2 ou 3).
 - Mostra uma pergunta por vez, com a categoria e as quatro alternativas.
 - Aceita letra maiúscula ou minúscula.
 - Se a resposta for inválida ou o jogador apertar só Enter, pede de novo.
 - Quando o jogador erra, mostra qual era a alternativa correta.
-- No fim, mostra a pontuação (ex.: `8 de 10`) e uma mensagem que depende do desempenho.
+- No fim, mostra a pontuação (ex.: `5 de 6 perguntas corretas`) e uma mensagem que depende do desempenho.
 
 ### Extras
 
+- Três níveis de dificuldade, escolhidos pelo jogador a cada rodada.
 - A ordem das perguntas muda a cada rodada, e a posição das alternativas também.
 - As frases de acerto e de erro são sorteadas, para o jogo não ficar repetitivo.
 - É possível jogar de novo, com o mesmo jogador ou com outro nome.
-- Placar com os resultados da sessão.
+- Placar da sessão, com o nível de cada partida.
+
+
 
 ## Tecnologias
 
 - Dart (SDK 3.5 ou superior)
-- Pacotes de desenvolvimento: `lints` e `test`
+- Pacotes de desenvolvimento: `lints`
 
 ## Como executar
 

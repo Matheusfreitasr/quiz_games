@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'entrada.dart';
 import 'pergunta.dart';
+import 'perguntas.dart';
 
 final Random _sorteio = Random();
 
@@ -23,10 +24,15 @@ const List<String> _frasesErro = [
 
 class Resultado {
   final String nome;
+  final Nivel nivel;
   final int acertos;
   final int total;
 
-  const Resultado(this.nome, this.acertos, this.total);
+  const Resultado(this.nome, this.nivel, this.acertos, this.total);
+}
+
+List<Pergunta> perguntasDoNivel(Nivel nivel) {
+  return perguntas.where((p) => p.nivel == nivel).toList();
 }
 
 String _sortearFrase(List<String> frases, String nome) {
@@ -89,12 +95,14 @@ int jogarRodada(String nome, List<Pergunta> lista) {
 }
 
 void mostrarRanking(List<Resultado> ranking) {
-  final ordenado = [...ranking]
-    ..sort((a, b) => b.acertos.compareTo(a.acertos));
-  print('');
+  final ordenado = [...ranking]..sort((a, b) {
+      final porAcertos = b.acertos.compareTo(a.acertos);
+      if (porAcertos != 0) return porAcertos;
+      return b.nivel.index.compareTo(a.nivel.index);
+    });
   print('--- Placar da sessão ---');
   for (var i = 0; i < ordenado.length; i++) {
     final r = ordenado[i];
-    print('${i + 1}º ${r.nome}: ${r.acertos} de ${r.total}');
+    print('${i + 1}º ${r.nome} (${r.nivel.nome}): ${r.acertos} de ${r.total}');
   }
 }

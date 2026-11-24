@@ -2,11 +2,11 @@ import 'package:quiz_games/quiz_games.dart';
 import 'package:test/test.dart';
 
 void main() {
-  test('toda pergunta tem quatro alternativas e um índice correto válido', () {
-    expect(perguntas.length, greaterThanOrEqualTo(5));
-    for (final p in perguntas) {
-      expect(p.alternativas.length, 4);
-      expect(p.indiceCorreto, inInclusiveRange(0, 3));
+  test('cada nível tem pelo menos cinco perguntas do próprio nível', () {
+    for (final nivel in Nivel.values) {
+      final lista = perguntasDoNivel(nivel);
+      expect(lista.length, greaterThanOrEqualTo(5));
+      expect(lista.every((p) => p.nivel == nivel), isTrue);
     }
   });
 

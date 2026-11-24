@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'pergunta.dart';
 
 String _lerLinha() {
   final linha = stdin.readLineSync();
@@ -40,5 +41,21 @@ bool lerSimOuNao(String pergunta) {
     if (texto == 'S' || texto == 'SIM') return true;
     if (texto == 'N' || texto == 'NAO' || texto == 'NÃO') return false;
     print('Digite S para sim ou N para não.');
+  }
+}
+
+Nivel lerNivel() {
+  print('Escolha o nível:');
+  for (var i = 0; i < Nivel.values.length; i++) {
+    final nivel = Nivel.values[i];
+    print('  ${i + 1}) ${nivel.nome} - ${nivel.descricao}');
+  }
+  while (true) {
+    stdout.write('Nível (1, 2 ou 3): ');
+    final numero = int.tryParse(_lerLinha());
+    if (numero != null && numero >= 1 && numero <= Nivel.values.length) {
+      return Nivel.values[numero - 1];
+    }
+    print('Escolha 1, 2 ou 3.');
   }
 }

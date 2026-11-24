@@ -79,8 +79,6 @@ Pontuação final e placar:
 
 ## Uso de IA
 
-[Editem esta seção com o que vocês realmente fizeram.]
-
 - **Como a IA ajudou:** gerou a primeira versão da estrutura do projeto e do código (classe `Pergunta`, lista de perguntas, leitura da entrada e laço `for`) e sugeriu perguntas para o tema de games.
 - **O que adaptamos:** escolhi o tema depois de descartar um quiz que ficou parecido com o exemplo. Também pedi que o jogo permitisse trocar de jogador ao jogar de novo, que as frases fossem sorteadas e que as alternativas mudassem de posição.
 - **Como verificamos:** joguei várias vezes com `dart run` testando respostas certas, erradas, letras minúsculas, respostas inválidas e Enter vazio, e conferi se a pontuação batia. As respostas das perguntas foram conferidas em fontes confiáveis.

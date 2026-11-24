@@ -13,9 +13,12 @@ void main() {
   var jogarNovamente = true;
   while (jogarNovamente) {
     print('');
-    print('Fase iniciada, $nome! São ${perguntas.length} perguntas com 4 alternativas cada.');
+    final nivel = lerNivel();
+    final rodada = perguntasDoNivel(nivel)..shuffle();
 
-    final rodada = List.of(perguntas)..shuffle();
+    print('');
+    print('Fase ${nivel.nome} iniciada, $nome! São ${rodada.length} perguntas com 4 alternativas cada.');
+
     final acertos = jogarRodada(nome, rodada);
 
     print('');
@@ -24,7 +27,7 @@ void main() {
     print(mensagemFinal(nome, acertos, rodada.length));
     print('------------------------------------------');
 
-    ranking.add(Resultado(nome, acertos, rodada.length));
+    ranking.add(Resultado(nome, nivel, acertos, rodada.length));
     mostrarRanking(ranking);
 
     print('');
